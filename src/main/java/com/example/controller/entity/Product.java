@@ -1,34 +1,19 @@
-package com.example.demo.entity;
+package com.example.controller.entity;
 
-public class Product {
+public class Product{
 
 	private Integer productId;
-	private String productName;
+	private String ProductName;
 	private Integer price;
 	
 	public Product() {
 		
 	}
 	
-	public Product(String productName, Integer price) {
-	    this.productName = productName;
-	    this.price = price;
-	}
-
 	public Product(Integer productId, String productName, Integer price) {
 	    this.productId = productId;
-	    this.productName = productName;
+	    this.ProductName = productName;
 	    this.price = price;
-	}
-	
-	public String getProductInfo() {
-		String id = "product_id=";
-		String name = "product_name=";
-		String price = "price=";
-		String Info = id + this.productId + "," + name + this.productName + "," + price + this.price;
-		
-		
-		return Info;
 	}
 	
 	public Integer getProductId() {
@@ -40,11 +25,11 @@ public class Product {
 	}
 
 	public String getProductName() {
-	    return this.productName;
+	    return this.ProductName;
 	}
 
 	public void setProductName(String productName) {
-	    this.productName = productName;
+	    this.ProductName = productName;
 	}
 
 	public Integer getPrice() {
