@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.dao.impl;
 
 import java.util.List;
 
@@ -7,18 +7,17 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.entity.Product;
+import com.example.dao.UserDao;
+import com.example.entity.User;
 
 @Repository
-public class PgProductDao implements ProductDao{
+public class PgUserDao implements UserDao {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Product> findAll() {
-        return jdbcTemplate.query("SELECT * FROM products ORDER BY product_id",
-            new BeanPropertyRowMapper<Product>(Product.class));
+    public List<User> findAll() {
+        return jdbcTemplate.query("SELECT * FROM users ORDER BY id", new BeanPropertyRowMapper<User>(User.class));
     }
 }
-
 
