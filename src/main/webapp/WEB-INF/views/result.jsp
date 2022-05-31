@@ -11,10 +11,12 @@
 <title>検索結果</title>
 </head>
 <body>
-  <p>検索結果</p>
+  <h1>検索結果</h1>
   <p>
-    <c:if test="${not empty user}">
-      ${fn:escapeXml(user.name)}さんのIDです
+    <c:if test="${not empty product}">
+      <p>product_id:${fn:escapeXml(product.productId)}</p>
+       <p>product_name:${fn:escapeXml(product.productName)}</p>
+        <p>price:${fn:escapeXml(product.price)}</p>
     </c:if>
   </p>
   <a href="index">戻る</a>

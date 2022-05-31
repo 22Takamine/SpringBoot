@@ -12,12 +12,15 @@
 <title>検索</title>
 </head>
 <body>
-  <p>検索</p>
+  <h1>検索条件を入力してください</h1>
+  <c:if test="${not empty msg}">
+  	<p>${fn:escapeXml(msg)}</p>
+  </c:if>
   <form:form action="result" modelAttribute="index" method="post">
     <div>
-      <label>ユーザーID</label> <form:input path="id" />
+      <label>product_id:</label> <form:input path="id" />
     </div>
-    <form:button>実行</form:button>
+    <form:button>検索</form:button>
   </form:form>
 </body>
 </html>
