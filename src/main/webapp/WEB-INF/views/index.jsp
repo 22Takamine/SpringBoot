@@ -6,20 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Spring Web MVC Test</title>
+<title>トップ画面</title>
 </head>
 <body>
-  <form:form action="result" modelAttribute="index">
-    <div>
-      <label>名前:</label>
-      <form:input path="name"/>
-    </div>
-    <div>
-      <label>商品:</label>
-      <form:select path="productId">
-        <form:options items="${productList}" itemLabel="productName" itemValue="productId" />
-      </form:select>
-    </div>
+  <form:form action="login" modelAttribute="index">
+    <a 
     <form:button>送信</form:button>
   </form:form>
 </body>
