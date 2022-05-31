@@ -2,23 +2,23 @@ package com.example.controller.form;
 
 public class IndexForm {
 
-    private String name;
-    private Integer productId;
+    private String id;
+    private Integer pass;
 
-    public String getName() {
-        return name;
+    public String getId() {
+        return id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public Integer getProductId() {
-        return productId;
+    public Integer getPass() {
+        return pass;
     }
 
-    public void setProductId(Integer productId) {
-        this.productId = productId;
+    public void setPass(Integer pass) {
+        this.pass = pass;
     }
 }
 
