@@ -1,5 +1,7 @@
 package com.example.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,18 +23,46 @@ public class IndexController {
 
     @RequestMapping({ "/", "/index" })
     public String index(@ModelAttribute("index") IndexForm form, Model model) {
-        return "index";
+        return "top";
     }
 
-    @RequestMapping(value = "/result", method = RequestMethod.POST)
-    public String result(@ModelAttribute("index") IndexForm form, Model model) {
-        Product product = productService.findById(form.getId());
-        if(product == null) {
-        	model.addAttribute("msg", "対象のデータはありません");
-        	return "index";
-        }
-        model.addAttribute("product", product);
-        return "result";
+    @RequestMapping(value = "/result", params="seach", method = RequestMethod.POST)
+    public String seach(@ModelAttribute("index") IndexForm form, Model model) {
+    	List<Product> product;
+    	String name = form.getName();
+    	String price = form.getPrice();
+    	Integer priceNum = null;
+    	if(!price.isEmpty()) {
+    		priceNum = Integer.valueOf(price);
+    	}
+    	//Integer priceNum = Integer.valueOf(price);
+    	
+    	if(name.isEmpty() && price.isEmpty()) {
+    		product = productService.findAll();
+    		
+    	}else if(!name.isEmpty() && !price.isEmpty()) {
+    		product = productService.findByNameAndPrice(name, priceNum);
+    		
+    	}else {
+    		product = productService.findByNameOrPrice(name, priceNum);
+    	}
+    	
+        model.addAttribute("productList", product);
+        return "serchResult";
+    }
+    
+    @RequestMapping(value = "/result", params="register", method = RequestMethod.POST)
+    public String register(@ModelAttribute("index") IndexForm form, Model model) {
+    	String name = form.getName();
+    	String price = form.getPrice();
+    	Integer priceNum = null;
+    	if(!price.isEmpty()) {
+    		priceNum = Integer.valueOf(price);
+    	}
+    	
+    	productService.insert(name, priceNum);
+        
+        return "insertResult";
     }
 
 }

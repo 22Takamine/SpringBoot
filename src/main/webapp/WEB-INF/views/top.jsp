@@ -9,18 +9,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>検索</title>
+<title>トップ画面</title>
 </head>
 <body>
-  <h1>検索条件を入力してください</h1>
+  <h1>検索条件または登録情報を入力してください</h1>
   <c:if test="${not empty msg}">
   	<p>${fn:escapeXml(msg)}</p>
   </c:if>
   <form:form action="result" modelAttribute="index" method="post">
     <div>
-      <label>product_id:</label> <form:input path="id" />
+      <label>product_name:</label> <form:input path="name" />
     </div>
-    <form:button>検索</form:button>
+    <div>
+      <label>price:</label> <form:input path="price" />
+    </div>
+    <form:button name="seach">検索</form:button>
+    <form:button name="register">登録</form:button>
   </form:form>
 </body>
 </html>
