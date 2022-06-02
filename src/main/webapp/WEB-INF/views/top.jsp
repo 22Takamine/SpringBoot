@@ -20,15 +20,15 @@
   </c:if>
   <form:form action="result" modelAttribute="index" method="post">
     <div>
-      <label>${fn:escapeXml(name)}</label><form:input path="name"/>
+      <label><fmt:message key="form.lbl.name"/></label><form:input path="name"/>
       <form:errors path="name" cssStyle="color: red"/>
     </div>
     <div>
-      <label>${fn:escapeXml(price)}</label><form:input path="price"/>
+      <label><fmt:message key="form.lbl.price"/></label><form:input path="price"/>
       <form:errors path="price" cssStyle="color: red"/>
     </div>
-    <form:button name="seach">検索</form:button>
-    <form:button name="register">登録</form:button>
+    <form:button name="seach"><fmt:message key="form.lbl.seach"/></form:button>
+    <form:button name="register"><fmt:message key="form.lbl.register"/></form:button>
   </form:form>
 </body>
 </html>

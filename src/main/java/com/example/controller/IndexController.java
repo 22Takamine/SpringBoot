@@ -25,16 +25,14 @@ public class IndexController {
 
     @Autowired
     ProductService productService;
+    
+    @Autowired
     MessageSource messageSource;
     
     
 
-    @RequestMapping({ "/", "/index" })
+    @RequestMapping({ "/", "/index"})
     public String index(@ModelAttribute("index") IndexForm form, Model model) {
-//    	String nameMsg = messageSource.getMessage("name", null, Locale.getDefault());
-//    	String priceMsg = messageSource.getMessage("price", null, Locale.getDefault());
-//		model.addAttribute("name", nameMsg);
-//		model.addAttribute("price", priceMsg);
         return "top";
     }
 
@@ -74,6 +72,7 @@ public class IndexController {
     @RequestMapping(value = "/result", params="register", method = RequestMethod.POST)
     public String register(@Validated  @ModelAttribute("index") IndexForm form, BindingResult bindingResult, Model model) {
     	if (bindingResult.hasErrors()) {
+    		
             return "top";
         }
     	String name = form.getName();
