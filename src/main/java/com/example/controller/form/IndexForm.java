@@ -1,9 +1,16 @@
 package com.example.controller.form;
 
+import javax.validation.constraints.NotEmpty;
+
+
 public class IndexForm {
 
     private Integer id;
+    
+    @NotEmpty//(message="nameは必須です。")
     private String name;
+    
+    @NotEmpty//(message="priceは必須です。")
     private String price;
 
     public Integer getId() {
