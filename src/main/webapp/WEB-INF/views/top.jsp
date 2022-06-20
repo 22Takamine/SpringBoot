@@ -10,15 +10,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>トップ画面</title>
+<title>ログイン画面</title>
 </head>
 <body>
-  <h1>検索条件または登録情報を入力してください</h1>
+  <h1>メールアドレスおよびパスワードを入力してください</h1>
   
   <c:if test="${not empty msg}">
   	<p>${fn:escapeXml(msg)}</p>
   </c:if>
-  <form:form action="result" modelAttribute="index" method="post">
     <div>
       <label><fmt:message key="form.lbl.name"/></label><form:input path="name"/>
       <form:errors path="name" cssStyle="color: red"/>
